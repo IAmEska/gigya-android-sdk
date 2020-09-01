@@ -233,7 +233,7 @@ public class SessionVerificationService implements ISessionVerificationService {
      */
     private void evaluateVerifyLoginError(GigyaError error) {
         final int errorCode = error.getErrorCode();
-        if (errorCode == GigyaError.Codes.ERROR_NETWORK) {
+        if (errorCode == GigyaError.Codes.ERROR_NETWORK || errorCode == 0) {
             return;
         }
         GigyaLogger.error(LOG_TAG, "evaluateVerifyLoginError: error = " + errorCode + " session invalid -> invalidate & notify");
